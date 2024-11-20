@@ -3,17 +3,24 @@
 // }
 // console.log(mynumber(1021));
 
+// //============================================
 
-let users = [
-    { firstName: 'John', lastName: 'Doe', age: 30, location: 'New York' },
-    { firstName: 'Jane', lastName: 'Smith', age: 25, location: 'London' },
-    { firstName: 'Alice', lastName: 'Johnson', age: 35, location: 'Paris' },
-    { firstName: 'Bob', lastName: 'Brown', age: 40, location: 'Sydney' }
-  ];
+// let users = [
+//     { firstName: 'John', lastName: 'Doe', age: 30, location: 'New York' },
+//     { firstName: 'Jane', lastName: 'Smith', age: 25, location: 'London' },
+//     { firstName: 'Alice', lastName: 'Johnson', age: 35, location: 'Paris' },
+//     { firstName: 'Bob', lastName: 'Brown', age: 40, location: 'Sydney' }
+//   ];
   
-  let userSummaries = users.map(user => {
-    return `${user.firstName} ${user.lastName} is ${user.age} years old and lives in ${user.location}`;
-  });
+//   let userSummaries = users.map(user => {
+//     return `${user.firstName} ${user.lastName} is ${user.age} years old and lives in ${user.location}`;
+//   });
   
-  console.log(userSummaries);
+//   console.log(userSummaries);
   
+
+function reverse(array){
+  const rever = array.reverse();
+return rever.sort((a,b) => localecompare(a));
+}
+console.log(reverse(["apple", "banana", "cherry"]));
