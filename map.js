@@ -5,7 +5,7 @@
 
 
 // function replace(numbers){
-
+var regex = /\w/;
 // var str = numbers.map(item=>{
 //     let va = item.split("-");
 //  let s = va.replace(va[0], va[1]);
@@ -17,22 +17,6 @@
 //      return str
 // }
 // console.log(replace(["2024-02-25"]));
-
-
-function mult(array){
-     var result = array.filter(num => {
-          if (num<=1) return false;
-          for (i=2; i<= Math.sqrt(num); i++){
-               if (num %i === 0) return false;
-          }
-          return true;
-     }
-
-     )
-         return result; 
-}
-
-console.log(mult([2, 3, 4, 5, 8, 13, 17, 19, 21, 23]));
 
 
 
