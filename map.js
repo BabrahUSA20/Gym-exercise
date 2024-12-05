@@ -1,11 +1,12 @@
 
-//Question: Given an array of date strings in the format "YYYY-MM-DD", write a function that returns a new array of dates formatted as "MM-DD-YYYY".
+//Question: Given an array of date strings in the format 
+//"YYYY-MM-DD", write a function that returns a new array of 
+// dates formatted as "MM-DD-YYYY".
 
 
 
 
-// function replace(numbers){
-var regex = /\w/;
+function replace(date){
 // var str = numbers.map(item=>{
 //     let va = item.split("-");
 //  let s = va.replace(va[0], va[1]);
@@ -15,8 +16,11 @@ var regex = /\w/;
 // }
 // );
 //      return str
-// }
-// console.log(replace(["2024-02-25"]));
+const [year,month,day] = date.split('-')
+var x=2
+return `${month}-${day}-${year}`
+}
+console.log(replace("2024-02-25"));
 
 
 
