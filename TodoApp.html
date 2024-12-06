@@ -18,17 +18,16 @@ function myFunction() {
    } else {
 let li = document.createElement("li");
  li.textContent += data;
-document.getElementById("datas").appendChild(li); 
+document.getElementById("datas").appendChild(li) += button;
 }
 }
 function myFunct(){
   let rem = document.getElementById("datas")
 rem.removeChild(rem.firstElementChild);
-
 }
+let button = document.addEventListener("onclick", myFunct());
 
-
-    </script>
+</script>
   
   <button onclick="myFunction()">ADD</button>
   <button onclick="myFunct()">REMOVE</button>
