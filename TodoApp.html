@@ -12,18 +12,25 @@
 function myFunction() {
   let text;
   let data = prompt("Please enter your data:", "input");
+  console.log(typeof data);
   if (data == null || data == "") {
     text = "User cancelled the prompt.";
   } else {
-text = document.querySelect("#datas");
+text = document.querySelector("#datas");
 let fragment = new DocumentFragment();
-data.foreach((datas) => {
-    let li = document.createElement("li");
-    li.innerHTML = datas;
-    fragment.appendChild(li);
-});
+
+let li = document.createElement("li");
+ li.textContent += data;
+ fragment.appendChild(li);
+console.log(li);
+
+// data.foreach((datas) => {
+//     let li = document.createElement("li");
+//     li.innerHTML = datas;
+//     fragment.appendChild(li);
+// });
   
-document.getElementById("demo").innerHTML = text;
+document.getElementById("datas").appendChild(li); 
 }
 
 text.appendChild(fragment);
