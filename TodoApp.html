@@ -10,36 +10,28 @@
    <ul id = "datas"></ul>
     <script>
 function myFunction() {
-  let text;
+ let text;
   let data = prompt("Please enter your data:", "input");
-  console.log(typeof data);
-  if (data == null || data == "") {
-    text = "User cancelled the prompt.";
-  } else {
-text = document.querySelector("#datas");
-let fragment = new DocumentFragment();
 
+  if (data == null || data == "") {
+   text = "User cancelled the prompt.";
+   } else {
 let li = document.createElement("li");
  li.textContent += data;
- fragment.appendChild(li);
-console.log(li);
-
-// data.foreach((datas) => {
-//     let li = document.createElement("li");
-//     li.innerHTML = datas;
-//     fragment.appendChild(li);
-// });
-  
 document.getElementById("datas").appendChild(li); 
 }
-
-text.appendChild(fragment);
 }
+function myFunct(){
+  let rem = document.getElementById("datas")
+rem.removeChild(rem.firstElementChild);
+
+}
+
 
     </script>
   
   <button onclick="myFunction()">ADD</button>
-  <button onclick="myFunction()">REMOVE</button>
+  <button onclick="myFunct()">REMOVE</button>
   <p id="demo"></p>
 
 </body>
