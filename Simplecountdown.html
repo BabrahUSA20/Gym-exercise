@@ -3,13 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Countdown Timer</title>
+    <style>
+        #time{
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+        
+        #buttonid {
+          margin-top: 20px;
+        }
+        button {
+          margin: 5px;
+          padding: 10px 20px;
+        }
+        
+      </style>
 </head>
 <body>
-
-    <div>
-        
+    <h1>Countdown Timer</h1>
+<p id ="time"></p>
+    <div id ="buttonid">
+        <button id="button1"></button>
+        <button id="button2"></button>
+        <button id="button3"></button>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () =>{
+            let element  = document.getElementById("time");
+            let button = document.getElementById("buttonid");
+        let resec =  10;
+        element.textContent = resec;
+         let intervalcoun = setInterval(()=>{
+            resec --;
+            element.textContent = resec;
+            if(resec === 5){
+                let button1 = document.getElementById("button1");
+                button1.textContent = "+".concat(resec) + "s";
+            }
+           else  if(resec === 3){
+            let button2 = document.getElementById("button2");
+                button2.textContent = "+".concat( 5 + 5) +"s";
+            }
+           else if(resec === 1){
+                let button3 = document.getElementById("button3");
+                button3.textContent = "+".concat( 10 + 5) + "s";
+            }
+         else if(resec <= 0){
+                clearInterval(intervalcoun);
+                element.textContent = 0;
+              
+            }
+
+         },1000);
+        }); 
+    </script>
    
 
 </body>

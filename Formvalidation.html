@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .alert {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Validation</h1>
+    <div>
+        <label >First Number</label>
+        <input type="text" class="form-control" id="Input1">
+    </div><br>
+    <div >
+        <label >Second Number</label>
+        <input type="text" class="form-control" id="Input2">
+    </div>
+
+    <script>
+        let element1 = document.getElementById("Input1");
+        let element2 = document.getElementById("Input2");
+
+        function validat() {
+            
+            let firstn = parseFloat(element1.value) || 0;
+            let secondn = parseFloat(element2.value) || 0;
+            element1.removeEventListener("mouseenter", first);
+            element2.removeEventListener("mouseenter", second);
+
+            if (firstn < secondn) {
+                element2.addEventListener("mouseenter", second).style.color = "red";
+            }
+             else if (firstn > secondn) {
+                element1.addEventListener("mouseenter", first).style.color = "red";
+            }
+            else {
+                console.log("The two inputs are equal.").style.color = "red";
+            }
+        }
+        function first() {
+            setTimeout(() => {
+                alert("First number is greater.");
+                element1.removeEventListener("mouseenter", first);
+            }, 0);
+        }
+
+        function second() {
+            setTimeout(() => {
+                alert("Second number is greater.");
+                element2.removeEventListener("mouseenter", second);
+            },0); 
+        }
+
+        element1.addEventListener("input", validat);
+        element2.addEventListener("input", validat);
+    </script>
+</body>
+</html>
