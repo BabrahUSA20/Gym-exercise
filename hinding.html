@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .para {
+            display: none;
+        }
+
+        button {
+            font-size: 24px;
+        }
+        #click {
+            background-color: greenyellow;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="myList">
+        <li>Home</li>
+        <li>About</li>
+        <li>Links</li>
+        <li>Careers</li>
+    </ul>
+    <div>
+        <h1 id="head1" class="headc"> Hiden messages</h1>
+        <p class="para" id="para1">Lorem ipsum dolor sit amet consectetur adipisicing elit. At a in optio hic error, reiciendis, voluptatem veritatis, ullam non consectetur aspernatur. Dignissimos sed sunt tempora aliquid! Magnam harum omnis dolor!</p>
+
+    </div>
+    <div>
+        <h1 id="head2" class="headc"> Hi there how are you ?</h1>
+        <p class="para" id="para2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure unde commodi odio ducimus blanditiis, voluptas repellendus hic labore eum, ullam ex? Fugit quisquam laudantium et ea nihil dolorem quasi pariatur.</p>
+
+    </div>
+    <div>
+        <p id="click">you clicked the button</p>
+    </div>
+
+    <button class="button">click me</button>
+
+    <script>
+        const para1 = document.getElementById('para1');
+        const para2 = document.getElementById('para2');
+        const head2 = document.getElementById('head2');
+
+        const button = document.querySelector('.button');
+        const click = document.getElementById('click')
+
+        const myList = document.querySelector('#myList');
+
+        myList.addEventListener('click', (e) => {
+            console.log(e);
+            e.target.style.backgroundColor = "lightgreen"
+        })
+
+        const li = document.createElement('li')
+        li.textContent = "Jobs"
+        myList.appendChild(li);
+
+        head1.addEventListener('click', function(e) {
+            console.log("The head1 is clicked")
+            para1.style.display = "block"
+            para2.style.display = "none"
+        });
+
+        head2.addEventListener('click', function(e) {
+            para2.style.display = "block"
+            para1.style.display = "none"
+        })
+
+        button.addEventListener('mouseover', function(e) {
+            click.style.display = "block"
+            console.log(e);
+            e.target.style.backgroundColor = "red"
+            e.target.textContent = "YOU HAVE CLICKED ME";
+        })
+        
+  
+    </script>
+</body>
+</html>
