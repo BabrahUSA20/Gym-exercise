@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Example</title>
 </head>
+
 <body>
-    <form>
-        <div>
-            <label for =" ">FIRST NAME</label><BR>
-            <input type="type" placeholder="Enter your name">
-        </div>
-    </form>
-    
+  <form id="myForm">
+    <h2>My form</h2> 
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br><br>
+
+    <label for="gender">Gender:</label>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female
+    <br><br>
+
+    <label for="agreement">Agree to Terms:</label>
+    <input type="checkbox" id="agreement" name="agreement" required>
+    <br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+<script>
+    let form = document.getElementById("myForm");
+    form.addEventListener("submit", function(event){
+        event.preventDefault()
+        let username = form.element("username").value;
+        let email = form.element("email").value;
+        let gender = form.element()
+
+    });
+</script>
+ 
 </body>
 </html>

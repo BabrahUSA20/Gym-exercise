@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle visible</title>
+</head>
+<body>
+
+  
+    <button id="button">Toggle Visibility</button>
+   <label for=""></label>
+
+    <p>Hy there </p>
+    <script>
+
+        const para = document.querySelector("p")
+        const button = document.querySelector("#button")
+        button.addEventListener("click",(event)=>{
+            para.style.display = para.style.display === 'none' ? 'block' : 'none';
+
+        })
+    </script>
+    
+</body>
+</html>

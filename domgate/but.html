@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=but, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button1">REPLACE</button>
+    <button id="button2">removal</button>
+    <p id="parra">click</p>
+<script>
+    const button3 = document.createElement("button")
+    button3.id="hi"
+    button3.textContent="button3";
+    document.body.appendChild(button3)
+    const button1 = document.getElementById("button1")
+    const button2 = document.getElementById("button2")
+const para = document.getElementById("parra")
+    button1.addEventListener("click", (event)=>{
+        para.textContent ="you click"
+
+    })
+    button2.addEventListener("click", (event)=>{
+        para.textContent =""
+
+    })
+
+
+
+</script>
+
+   
+</body>
+</html>

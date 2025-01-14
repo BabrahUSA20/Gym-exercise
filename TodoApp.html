@@ -3,35 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Todo List</title>
+    <style>
+        li {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        button {
+            margin-left: 30px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-<h2> ENTER YOUR LIST TO BE LISTED  BELLOW</h2>
-   <ul id = "datas"></ul>
-    <script>
-function myFunction() {
- let text;
-  let data = prompt("Please enter your data:", "input");
 
-  if (data == null || data == "") {
-   text = "User cancelled the prompt.";
-   } else {
-let li = document.createElement("li");
- li.textContent += data;
-document.getElementById("datas").appendChild(li) += button;
-}
-}
-function myFunct(){
-  let rem = document.getElementById("datas")
-rem.removeChild(rem.firstElementChild);
-}
-let button = document.addEventListener("onclick", myFunct());
+<h2>Todo List</h2>
 
+<input type="text" id="input" placeholder="Enter task...">
+<button id="addB">Add</button>
+
+<ul id="list"></ul>
+
+<script>
+
+let taskInput = document.getElementById("input");
+let addButton = document.getElementById("addB");
+let ul= document.getElementById("list");
+addButton.addEventListener("click", function() {
+    let taskValue = taskInput.value.trim();
+    if (taskValue !== "") {
+        let li = document.createElement("li");
+
+        let taskText = document.createElement("span");
+        taskText.textContent = taskValue;
+        let removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        li.appendChild(taskText);
+        li.appendChild(removeButton);
+        
+        ul.appendChild(li);
+
+        taskInput.value = "";
+
+        removeButton.addEventListener("click", function() {
+            ul.removeChild(li); 
+        });
+    } else {
+        alert("Please enter a task.");
+    }
+});
 </script>
-  
-  <button onclick="myFunction()">ADD</button>
-  <button onclick="myFunct()">REMOVE</button>
-  <p id="demo"></p>
 
 </body>
 </html>

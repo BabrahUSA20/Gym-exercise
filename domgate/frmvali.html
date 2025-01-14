@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Form Validation</title>
+</head>
+<body>
+    <form id="form">
+        <input type="text" id="username" placeholder="Username"><br>
+        <input type="password" id="password" placeholder="Password"><br>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="message"></div>
+    <script>
+        document.getElementById('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const message = document.getElementById('message');
+
+            if (!username || !password) {
+                message.textContent = 'Please fill in all fields!';
+                message.style.color = 'red';
+            } else {
+                message.textContent = 'Form submitted successfully!';
+                message.style.color = 'green';
+            }
+        });
+    </script>
+</body>
+</html>

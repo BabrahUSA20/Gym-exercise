@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="button-container">
+        <button data-name="Button 1">Button 1</button>
+        <button data-name="Button 2">Button 2</button>
+      </div>
+      <p id="output"></p>
+<script>
+    // Get references to the container and output element
+const buttonContainer = document.getElementById("button-container");
+const output = document.getElementById("output");
+
+// Add a single event listener to the container
+buttonContainer.addEventListener("click", (event) => {
+  // Check if the clicked target is a button
+  if (event.target.tagName === "BUTTON") {
+    const buttonName = event.target.dataset.name; // Get button name from data attribute
+    output.textContent = `You clicked: ${buttonName}`;
+  }
+});
+
+</script>      
+    
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .timer {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Countdown Timer</h1>
+    <input type="number" id="duration" placeholder="Enter seconds" min="1">
+    <button id="startButton">Start Countdown</button>
+    <div class="timer" id="timerDisplay">00:00:00</div>
+
+    <script>
+        const startButton = document.getElementById('startButton');
+        const timerDisplay = document.getElementById('timerDisplay');
+        const durationInput = document.getElementById('duration');
+        let countdownInterval;
+
+        function startCountdown() {
+            clearInterval(countdownInterval);
+            let remainingTime = parseInt(durationInput.value, 10);
+
+            if (isNaN(remainingTime) || remainingTime <= 0) {
+                timerDisplay.textContent = "Please enter a valid number!";
+                return;
+            }
+
+            function updateTimer() {
+                const hours = String(Math.floor(remainingTime / 3600)).padStart(2, '0');
+                const minutes = String(Math.floor((remainingTime % 3600) / 60)).padStart(2, '0');
+                const seconds = String(remainingTime % 60).padStart(2, '0');
+                timerDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+
+                if (remainingTime <= 0) {
+                    clearInterval(countdownInterval);
+                    timerDisplay.textContent = "Time's up!";
+                }
+
+                remainingTime--;
+            }
+
+            updateTimer();
+            countdownInterval = setInterval(updateTimer, 1000);
+        }
+
+        startButton.addEventListener('click', startCountdown);
+    </script>
+</body>
+</html>

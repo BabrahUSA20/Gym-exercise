@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaprekar's Constant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kaprekar's Constant Calculator</h1>
+    <p>Enter a four-digit number (digits must not be identical):</p>
+    <input type="text" id="numberInput" placeholder="Enter 4-digit number" maxlength="4">
+    <button id="calculateButton">Calculate</button>
+    <div class="result" id="result"></div>
+
+    <script>
+        document.getElementById('calculateButton').addEventListener('click', function () {
+            const input = document.getElementById('numberInput').value;
+            const resultDiv = document.getElementById('result');
+
+            if (!/^[0-9]{4}$/.test(input) || new Set(input).size === 1) {
+                resultDiv.textContent = "Please enter a valid four-digit number with non-identical digits.";
+                return;
+            }
+
+            let num = input;
+            let steps = 0;
+            const KAPREKAR_CONSTANT = 6174;
+
+            while (num !== KAPREKAR_CONSTANT.toString()) {
+                steps++;
+                const ascending = num.split('').sort().join('');
+                const descending = num.split('').sort((a, b) => b - a).join('');
+                num = (parseInt(descending, 10) - parseInt(ascending, 10)).toString().padStart(4, '0');
+            }
+
+            resultDiv.textContent = `It took ${steps} steps to reach Kaprekar's constant (6174).`;
+        });
+    </script>
+</body>
+</html>

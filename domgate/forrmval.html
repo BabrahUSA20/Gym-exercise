@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            width: 100px;
+        }
+        .error {
+            color: red;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Compare Two Numbers</h1>
+    <input type="number" id="input1" value="0">
+    <input type="number" id="input2" value="0">
+    <div class="error" id="errorMessage"></div>
+
+    <script>
+        const input1 = document.getElementById('input1');
+        const input2 = document.getElementById('input2');
+        const errorMessage = document.getElementById('errorMessage');
+
+        function validateInputs() {
+            const value1 = Number(input1.value);
+            const value2 = Number(input2.value);
+
+            if (value1 > value2) {
+                errorMessage.textContent = "First number is larger";
+            } else if (value1 < value2) {
+                errorMessage.textContent = "Second number is larger";
+            } else {
+                errorMessage.textContent = "";
+            }
+        }
+
+        input1.addEventListener('input', validateInputs);
+        input2.addEventListener('input', validateInputs);
+    </script>
+</body>
+</html>

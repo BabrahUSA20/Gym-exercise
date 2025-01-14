@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Drag and Drop</title>
+    <style>
+        #box1, #box2 {
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            margin: 10px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .item {
+            margin: 5px;
+            padding: 5px;
+            background-color: lightgray;
+            cursor: grab;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div class="item" draggable="true">Item 1</div>
+        <div class="item" draggable="true">Item 2</div>
+    </div>
+    <div id="box2"></div>
+    <script>
+        document.querySelectorAll('.item').forEach(item => {
+            item.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text', e.target.id);
+            });
+        });
+
+        document.querySelectorAll('#box1, #box2').forEach(box => {
+            box.addEventListener('dragover', (e) => e.preventDefault());
+            box.addEventListener('drop', (e) => {
+                const id = e.dataTransfer.getData('text');
+                e.target.appendChild(document.querySelector(`.item`));
+            });
+        });
+    </script>
+</body>
+</html>

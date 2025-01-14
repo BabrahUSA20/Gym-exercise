@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Style Elements</title>
+</head>
+<body>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <button id="highlight">Highlight</button>
+    <script>
+        document.getElementById('highlight').addEventListener('click', () => {
+            document.querySelectorAll('li').forEach(item => {
+                item.style.backgroundColor = 'yellow';
+                item.style.color = 'blue';
+            });
+        });
+    </script>
+</body>
+</html>

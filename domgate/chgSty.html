@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Change Colors</title>
+</head>
+<body>
+    <button id="changeColor">Change Color</button>
+    <div id="colorBox" style="width: 200px; height: 200px; border: 1px solid black;"></div>
+    <script>
+        const colors = ["red", "blue", "green", "yellow", "purple"];
+        let currentIndex = 0;
+
+        document.getElementById("changeColor").addEventListener("click", () => {
+            const colorBox = document.getElementById("colorBox");
+            colorBox.style.backgroundColor = colors[currentIndex];
+           currentIndex = currentIndex + 1  // Cycle through the array
+        });
+    </script>
+</body>
+</html>

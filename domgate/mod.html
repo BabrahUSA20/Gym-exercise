@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifiiing</title>
+</head>
+<body>
+    <button id="button">ADD ME </button>
+    <div id="contain"></div>
+    <script>  let count = 0;
+        const button = document.getElementById("button")
+        button.addEventListener("click", function(){
+          
+            const container = document.getElementById("contain")
+            const item = document.createElement("div")
+                count++;
+                item.id = `div-${count}`
+                item.textContent = `this is ${count} div`
+                container.appendChild(item)
+            
+        })
+
+    </script>
+    
+</body>
+</html>
